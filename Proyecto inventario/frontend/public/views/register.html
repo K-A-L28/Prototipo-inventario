@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta name="referrer" content="no-referrer">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="../css/pages/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="login-card">
+
+            <h1 class="title">Registrate</h1>
+            <p class="subtitle">Ingresa los siguientes datos</p>
+
+            <form class="login-form" id="registerForm" novalidate>
+                <div class="form-group">
+                    <label for="email">Ingresa el nombre de tu organización</label>
+                    <input type="text" id="name_org" placeholder="Inventary CMD">
+                    <span class="error-message" id="password-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Ingresa tu nombre</label>
+                    <input type="text" id="name" name="name" placeholder="Tu nombre y apellidos">
+                    <span class="error-message" id="password-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Ingresa tu correo electrónico</label>
+                    <input type="email" id="emailRegister" name="email" placeholder="ejemplo@gmail.com">
+                    <span class="error-message" id="password-error"></span>
+                </div>
+
+                <div class="form-group password-group">
+                    <label for="password">Ingresa una contraseña</label>
+                    <input type="password" id="passwordRegister" name="password" placeholder="••••••••">
+                    <button type="button" class="password-toggle" id="togglePasswordRegister"
+                        aria-label="Mostrar contraseña">
+                        <svg class="eye-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="eye-open"
+                                d="M12 5C7 5 2.73 8.11 1 12.5 2.73 16.89 7 20 12 20s9.27-3.11 11-7.5C21.27 8.11 17 5 12 5z"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <circle class="eye-open" cx="12" cy="12.5" r="3" stroke="currentColor" stroke-width="2" />
+                            <path class="eye-closed"
+                                d="M12 5C7 5 2.73 8.11 1 12.5 2.73 16.89 7 20 12 20s9.27-3.11 11-7.5C21.27 8.11 17 5 12 5z"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <circle class="eye-closed" cx="12" cy="12.5" r="3" stroke="currentColor" stroke-width="2" />
+                            <line class="eye-closed" x1="3" y1="3" x2="21" y2="21" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                    <span class="error-message" id="password-error"></span>
+                </div>
+
+
+                <button type="submit" class="btn-login">
+                    Registrarse
+                </button>
+
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/pages/register.js"></script>
+    <script src="../js/components/hide-password.js"></script>
+</body>
+
+</html>

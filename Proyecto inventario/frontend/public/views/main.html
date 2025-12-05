@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <title>Panel de Control - Inventario</title>
+  <link rel="stylesheet" href="../css/pages/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="dashboard">
+    <header class="dashboard__header">
+      <div class="dashboard__header-container">
+        <div class="dashboard__logo"></div>
+        <div class="dashboard__title">Menú de inventarios</div>
+      </div>
+
+      <div class="profile-menu">
+        <button id="profileBtn" class="dashboard__user-btn" aria-label="Configuración de usuario">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-user-cog">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+            <path d="M6 21v-2a4 4 0 0 1 4 -4h2.5" />
+            <path d="M19.001 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+            <path d="M19.001 15.5v1.5" />
+            <path d="M19.001 21v1.5" />
+            <path d="M22.032 17.25l-1.299 .75" />
+            <path d="M17.27 20l-1.3 .75" />
+            <path d="M15.97 17.25l1.3 .75" />
+            <path d="M20.733 20l1.3 .75" />
+          </svg>
+        </button>
+
+        <div id="dropdownMenu" class="dropdown hidden">
+          <a href="#">Ver perfil</a>
+          <a href="#">Cerrar sesión</a>
+        </div>
+      </div>
+
+    </header>
+
+    <main class="dashboard__main">
+      <section id="widgetsSection" class="widgets-section">
+        <div class="widgets-toggle-container">
+          <button id="toggleWidgetsBtn" class="info-btn" title="Mostrar/ocultar información">
+            <svg id="arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="toggle-arrow">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Card widgets -->
+        <div id="widgets-cards" class="widgets-cards hidden">
+          <div class="widgets-container">
+            <div class="widget">
+              <div class="widget-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6z"></path>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </div>
+              <div class="widget-info">
+                <h3>Total Inventarios</h3>
+                <p id="totalInventories">0</p>
+              </div>
+            </div>
+
+            <div class="widget">
+              <div class="widget-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="12" y1="18" x2="12" y2="12"></line>
+                  <line x1="9" y1="15" x2="15" y2="15"></line>
+                </svg>
+              </div>
+              <div class="widget-info">
+                <h3>Total Items</h3>
+                <p id="totalItems">0</p>
+              </div>
+            </div>
+
+            <div class="widget">
+              <div class="widget-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v20M2 12h20"></path>
+                </svg>
+              </div>
+              <div class="widget-info">
+                <h3>Valor Total</h3>
+                <p id="totalValue">$0</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="search">
+        <div class="search__box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-search">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+            <path d="M21 21l-6 -6" />
+          </svg>
+          <input type="text" class="search__input" placeholder="Buscar por USK" />
+        </div>
+      </section>
+
+
+      <section class="inventory-cards">
+        <a rel="stylesheet" href="#" class="card-add">
+          <div class="card--background">
+            <div class="card-content">
+              <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-plus">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 5l0 14" />
+                <path d="M5 12l14 0" />
+              </svg>
+            </div>
+          </div>
+        </a>
+
+        <div class="card">
+          <div class="card-content">
+            <div class="card__header">
+              <h3 class="card-title">Inventario</h3>
+              <button class="setting-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-dots"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></svg>
+              </button>
+            </div>
+            
+            <div class="card__summary">
+              <div class="info">    
+                <p id="totalItems">5</p><span>items</span>
+              </div>
+              <div class="info">
+                <p id="totalValue">$0</p><span>Valor total</span>
+              </div>
+            </div>
+            
+            <p class="card__stock">Stock normal</p>
+
+            <span class="update__info">Actualizado hace 2 horas</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="dashboard__footer">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-headset">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M4 14v-3a8 8 0 1 1 16 0v3" />
+        <path d="M18 19c0 1.657 -2.686 3 -6 3" />
+        <path d="M4 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3z" />
+        <path d="M15 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3z" />
+      </svg>
+      <p class="dashboard__support-text">Línea de soporte 000 000 0000</p>
+    </footer>
+  </div>
+
+
+
+
+  <!-- Modal para agregar inventario -->
+  <div id="inventoryModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2>Nuevo Inventario</h2>
+      <form id="inventoryForm" class="modal-form">
+        <div class="form-group">
+          <label for="inventoryType">Tipo de Inventario</label>
+          <select id="inventoryType" name="inventoryType" required>
+            <option value="">Seleccione un tipo</option>
+            <option value="medicamentos">Medicamentos</option>
+            <option value="insumos">Insumos Médicos</option>
+            <option value="equipos">Equipos</option>
+            <option value="otros">Otros</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="inventoryName">Nombre del Inventario</label>
+          <input type="text" id="inventoryName" name="inventoryName" placeholder="Ej: Medicamentos Generales" required>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="cancelButton">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Crear Inventario</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+<script src="../js/components/main-modal.js"></script>
+<script src="../js/components/dropdown.js"></script>
+<script src="../js/pages/main.js"></script>
+
+
+
+</html>
